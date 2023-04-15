@@ -1,20 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using StocksApp.ServiceContracts;
 using StocksApp.Services;
 
 namespace StocksApp.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly MyService _myService;
-        public HomeController(MyService myService)
+        private readonly IFinnhubService _finnhubService;
+        public HomeController(IFinnhubService finnhubService)
         {
-            _myService = myService;
+            _finnhubService = finnhubService;
         }
 
         [Route("/")]
         public async Task<IActionResult> Index()
         {
-            await _myService.Method();
+            Dictionary<string,object>? response = await _finnhubService.GetStockPriceQuote("MSFT");
 
             return View();
         }
