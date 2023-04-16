@@ -1,6 +1,10 @@
 {
   "Files": [
     {
+      "Id": "F:\\Documents\\StocksApp\\StocksApp\\wwwroot\\Scripts\\FinnhubScript.js",
+      "PackagePath": "staticwebassets\\Scripts\\FinnhubScript.js"
+    },
+    {
       "Id": "F:\\Documents\\StocksApp\\StocksApp\\wwwroot\\StyleSheet.css",
       "PackagePath": "staticwebassets\\StyleSheet.css"
     },
