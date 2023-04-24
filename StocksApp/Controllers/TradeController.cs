@@ -1,29 +1,41 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using StocksApp.Models;
-using StocksApp.ServiceContracts;
-using StocksApp.Services;
+using ServiceContracts;
+using Services;
 
 namespace StocksApp.Controllers
 {
+    [Route("[controller]")]
     public class TradeController : Controller
     {
-        private readonly IFinnhubService _finnhubService;
         private readonly TradingOptions _tradingOptions;
+        private readonly IStocksService _stocksService;
+        private readonly IFinnhubService _finnhubService;
         private readonly IConfiguration _configuration;
-        public TradeController(IFinnhubService finnhubService, IOptions<TradingOptions> tradingOptions,IConfiguration configuration)
+
+
+        /// <summary>
+        /// Constructor for TradeController that executes when a new object is created for the class
+        /// </summary>
+        /// <param name="tradingOptions">Injecting TradeOptions config through Options pattern</param>
+        /// <param name="stocksService">Injecting StocksService</param>
+        /// <param name="finnhubService">Injecting FinnhubService</param>
+        /// <param name="configuration">Injecting IConfiguration</param>
+        public TradeController(IOptions<TradingOptions> tradingOptions, IStocksService stocksService, IFinnhubService finnhubService, IConfiguration configuration)
         {
-            _finnhubService = finnhubService;
             _tradingOptions = tradingOptions.Value;
+            _stocksService = stocksService;
+            _finnhubService = finnhubService;
             _configuration = configuration;
         }
+
 
         [Route("/")]
         [Route("[action]")]
         [Route("~/[controller]")]
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-
             //reset stock symbol if not exists
             if (string.IsNullOrEmpty(_tradingOptions.DefaultStockSymbol))
                 _tradingOptions.DefaultStockSymbol = "MSFT";

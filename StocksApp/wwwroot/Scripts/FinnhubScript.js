@@ -36,7 +36,9 @@ socket.addEventListener('message', function (event) {
         if (eventData.data) {
             //get the updated price
             var updatedPrice = JSON.parse(event.data).data[0].p;
-            //console.log(updatedPrice);
+            var timeStamp = JSON.parse(event.data).data[0].t;
+            //console.log(updatedPrice, timeStamp);
+            //console.log(new Date(timeStamp).toLocaleTimeString());
 
             //update the UI
             $(".price").text(updatedPrice.toFixed(2)); //price - big display
