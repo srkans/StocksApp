@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using StocksApp.Models;
 using ServiceContracts;
-using Services;
+using ServiceContracts.DTO;
+using StocksApp.Models;
+using StocksApp.Models;
+using StocksApp;
 
 namespace StocksApp.Controllers
 {
@@ -54,13 +56,80 @@ namespace StocksApp.Controllers
             //load data from finnHubService into model object
             if (companyProfileDictionary != null && stockQuoteDictionary != null)
             {
-                stockTrade = new StockTrade() { StockSymbol = Convert.ToString(companyProfileDictionary["ticker"]), StockName = Convert.ToString(companyProfileDictionary["name"]), Price = Convert.ToDouble(stockQuoteDictionary["c"].ToString()) };
+                stockTrade = new StockTrade() { StockSymbol = companyProfileDictionary["ticker"].ToString(), StockName = companyProfileDictionary["name"].ToString(), Quantity = _tradingOptions.DefaultOrderQuantity ?? 0, Price = Convert.ToDouble(stockQuoteDictionary["c"].ToString()) };
             }
 
             //Send Finnhub token to view
             ViewBag.FinnhubToken = _configuration["FinnhubToken"];
 
             return View(stockTrade);
+        }
+
+
+        [Route("[action]")]
+        [HttpPost]
+        public IActionResult BuyOrder(BuyOrderRequest buyOrderRequest)
+        {
+            //update date of order
+            buyOrderRequest.DateAndTimeOfOrder = DateTime.Now;
+
+            //re-validate the model object after updating the date
+            ModelState.Clear();
+            TryValidateModel(buyOrderRequest);
+
+
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
+                StockTrade stockTrade = new StockTrade() { StockName = buyOrderRequest.StockName, Quantity = buyOrderRequest.Quantity, StockSymbol = buyOrderRequest.StockSymbol };
+                return View("Index", stockTrade);
+            }
+
+            //invoke service method
+            BuyOrderResponse buyOrderResponse = _stocksService.CreateBuyOrder(buyOrderRequest);
+
+            return RedirectToAction(nameof(Orders));
+        }
+
+
+        [Route("[action]")]
+        [HttpPost]
+        public IActionResult SellOrder(SellOrderRequest sellOrderRequest)
+        {
+            //update date of order
+            sellOrderRequest.DateAndTimeOfOrder = DateTime.Now;
+
+            //re-validate the model object after updating the date
+            ModelState.Clear();
+            TryValidateModel(sellOrderRequest);
+
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
+                StockTrade stockTrade = new StockTrade() { StockName = sellOrderRequest.StockName, Quantity = sellOrderRequest.Quantity, StockSymbol = sellOrderRequest.StockSymbol };
+                return View("Index", stockTrade);
+            }
+
+            //invoke service method
+            SellOrderResponse sellOrderResponse = _stocksService.CreateSellOrder(sellOrderRequest);
+
+            return RedirectToAction(nameof(Orders));
+        }
+
+
+        [Route("[action]")]
+        public IActionResult Orders()
+        {
+            //invoke service methods
+            List<BuyOrderResponse> buyOrderResponses = _stocksService.GetBuyOrders();
+            List<SellOrderResponse> sellOrderResponses = _stocksService.GetSellOrders();
+
+            //create model object
+            Orders orders = new Orders() { BuyOrders = buyOrderResponses, SellOrders = sellOrderResponses };
+
+            ViewBag.TradingOptions = _tradingOptions;
+
+            return View(orders);
         }
     }
 }
