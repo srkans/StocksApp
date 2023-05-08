@@ -10,7 +10,7 @@
         /// </summary>
         /// <param name="stockSymbol">Stock symbol to search</param>
         /// <returns>Returns a dictionary that contains details such as company country, currency, exchange, IPO date, market capitalization, name of the company, phone number etc.</returns>
-        Dictionary<string, object>? GetCompanyProfile(string stockSymbol);
+        Task<Dictionary<string, object>?> GetCompanyProfile(string stockSymbol);
 
 
         /// <summary>
@@ -18,6 +18,6 @@
         /// </summary>
         /// <param name="stockSymbol">Stock symbol to search</param>
         /// <returns>Returns a dictionary that contains details such as current price, change in price, percentage change, high price of the day, low price of the day, open price of the day, previous close price</returns>
-        Dictionary<string, object>? GetStockPriceQuote(string stockSymbol);
+        Task<Dictionary<string, object>?> GetStockPriceQuote(string stockSymbol);
     }
 }

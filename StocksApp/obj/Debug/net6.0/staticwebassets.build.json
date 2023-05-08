@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "50a1O6daX2y5BDY2Swqs8/IxS+TrAVgAsrNYS4EBp5w=",
+  "Hash": "v6yGg/E13Ov3BN39zaf21+X0NOA9qNJeq1fGZS+SB20=",
   "Source": "StocksApp",
   "BasePath": "_content/StocksApp",
   "Mode": "Default",
@@ -16,6 +16,40 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "F:\\Documents\\StocksApp\\StocksApp\\wwwroot\\Rotativa\\wkhtmltopdf.exe",
+      "SourceId": "StocksApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\Documents\\StocksApp\\StocksApp\\wwwroot\\",
+      "BasePath": "_content/StocksApp",
+      "RelativePath": "Rotativa/wkhtmltopdf.exe",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Rotativa\\wkhtmltopdf.exe"
+    },
+    {
+      "Identity": "F:\\Documents\\StocksApp\\StocksApp\\wwwroot\\Scripts\\ChartScript.js",
+      "SourceId": "StocksApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\Documents\\StocksApp\\StocksApp\\wwwroot\\",
+      "BasePath": "_content/StocksApp",
+      "RelativePath": "Scripts/ChartScript.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Scripts\\ChartScript.js"
+    },
     {
       "Identity": "F:\\Documents\\StocksApp\\StocksApp\\wwwroot\\Scripts\\FinnhubScript.js",
       "SourceId": "StocksApp",

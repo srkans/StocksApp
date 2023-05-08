@@ -5,6 +5,7 @@ using ServiceContracts.DTO;
 using StocksApp.Models;
 using StocksApp.Models;
 using StocksApp;
+using Rotativa.AspNetCore;
 
 namespace StocksApp.Controllers
 {
@@ -36,7 +37,7 @@ namespace StocksApp.Controllers
         [Route("/")]
         [Route("[action]")]
         [Route("~/[controller]")]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             //reset stock symbol if not exists
             if (string.IsNullOrEmpty(_tradingOptions.DefaultStockSymbol))
@@ -44,10 +45,10 @@ namespace StocksApp.Controllers
 
 
             //get company profile from API server
-            Dictionary<string, object>? companyProfileDictionary = _finnhubService.GetCompanyProfile(_tradingOptions.DefaultStockSymbol);
+            Dictionary<string, object>? companyProfileDictionary = await _finnhubService.GetCompanyProfile(_tradingOptions.DefaultStockSymbol);
 
             //get stock price quotes from API server
-            Dictionary<string, object>? stockQuoteDictionary = _finnhubService.GetStockPriceQuote(_tradingOptions.DefaultStockSymbol);
+            Dictionary<string, object>? stockQuoteDictionary = await _finnhubService.GetStockPriceQuote(_tradingOptions.DefaultStockSymbol);
 
 
             //create model object
@@ -68,7 +69,7 @@ namespace StocksApp.Controllers
 
         [Route("[action]")]
         [HttpPost]
-        public IActionResult BuyOrder(BuyOrderRequest buyOrderRequest)
+        public async Task<IActionResult> BuyOrder(BuyOrderRequest buyOrderRequest)
         {
             //update date of order
             buyOrderRequest.DateAndTimeOfOrder = DateTime.Now;
@@ -86,7 +87,7 @@ namespace StocksApp.Controllers
             }
 
             //invoke service method
-            BuyOrderResponse buyOrderResponse = _stocksService.CreateBuyOrder(buyOrderRequest);
+            BuyOrderResponse buyOrderResponse = await _stocksService.CreateBuyOrder(buyOrderRequest);
 
             return RedirectToAction(nameof(Orders));
         }
@@ -94,7 +95,7 @@ namespace StocksApp.Controllers
 
         [Route("[action]")]
         [HttpPost]
-        public IActionResult SellOrder(SellOrderRequest sellOrderRequest)
+        public async Task<IActionResult> SellOrder(SellOrderRequest sellOrderRequest)
         {
             //update date of order
             sellOrderRequest.DateAndTimeOfOrder = DateTime.Now;
@@ -111,18 +112,18 @@ namespace StocksApp.Controllers
             }
 
             //invoke service method
-            SellOrderResponse sellOrderResponse = _stocksService.CreateSellOrder(sellOrderRequest);
+            SellOrderResponse sellOrderResponse = await _stocksService.CreateSellOrder(sellOrderRequest);
 
             return RedirectToAction(nameof(Orders));
         }
 
 
         [Route("[action]")]
-        public IActionResult Orders()
+        public async Task<IActionResult> Orders()
         {
             //invoke service methods
-            List<BuyOrderResponse> buyOrderResponses = _stocksService.GetBuyOrders();
-            List<SellOrderResponse> sellOrderResponses = _stocksService.GetSellOrders();
+            List<BuyOrderResponse> buyOrderResponses = await _stocksService.GetBuyOrders();
+            List<SellOrderResponse> sellOrderResponses = await _stocksService.GetSellOrders();
 
             //create model object
             Orders orders = new Orders() { BuyOrders = buyOrderResponses, SellOrders = sellOrderResponses };
@@ -130,6 +131,25 @@ namespace StocksApp.Controllers
             ViewBag.TradingOptions = _tradingOptions;
 
             return View(orders);
+        }
+
+        [Route("OrdersPDF")]
+        public async Task<IActionResult> OrdersPDF()
+        {
+            //Get list of orders
+            List<IOrderResponse> orders = new List<IOrderResponse>();
+            orders.AddRange(await _stocksService.GetBuyOrders());
+            orders.AddRange(await _stocksService.GetSellOrders());
+            orders = orders.OrderByDescending(temp => temp.DateAndTimeOfOrder).ToList();
+
+            ViewBag.TradingOptions = _tradingOptions;
+
+            //Return view as pdf
+            return new ViewAsPdf("OrdersPDF", orders, ViewData)
+            {
+                PageMargins = new Rotativa.AspNetCore.Options.Margins() { Top = 20, Right = 20, Bottom = 20, Left = 20 },
+                PageOrientation = Rotativa.AspNetCore.Options.Orientation.Landscape
+            };
         }
     }
 }
