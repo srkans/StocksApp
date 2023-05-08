@@ -10,3 +10,5 @@ F:\Documents\StocksApp\Entities\obj\Debug\net6.0\Entities.dll
 F:\Documents\StocksApp\Entities\obj\Debug\net6.0\refint\Entities.dll
 F:\Documents\StocksApp\Entities\obj\Debug\net6.0\Entities.pdb
 F:\Documents\StocksApp\Entities\obj\Debug\net6.0\ref\Entities.dll
+F:\Documents\StocksApp\Entities\bin\Debug\net6.0\Entities.runtimeconfig.json
+F:\Documents\StocksApp\Entities\obj\Debug\net6.0\Entities.genruntimeconfig.cache

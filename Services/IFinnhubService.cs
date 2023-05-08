@@ -17,7 +17,7 @@ namespace Services
         }
 
 
-        public Dictionary<string, object>? GetCompanyProfile(string stockSymbol)
+        public async Task<Dictionary<string, object>?> GetCompanyProfile(string stockSymbol)
         {
             //create http client
             HttpClient httpClient = _httpClientFactory.CreateClient();
@@ -30,10 +30,10 @@ namespace Services
             };
 
             //send request
-            HttpResponseMessage httpResponseMessage = httpClient.Send(httpRequestMessage);
+            HttpResponseMessage httpResponseMessage = await httpClient.SendAsync(httpRequestMessage);
 
             //read response body
-            string responseBody = new StreamReader(httpResponseMessage.Content.ReadAsStream()).ReadToEnd();
+            string responseBody = await httpResponseMessage.Content.ReadAsStringAsync();
 
             //convert response body (from JSON into Dictionary)
             Dictionary<string, object>? responseDictionary = JsonSerializer.Deserialize<Dictionary<string, object>>(responseBody);
@@ -49,7 +49,7 @@ namespace Services
         }
 
 
-        public Dictionary<string, object>? GetStockPriceQuote(string stockSymbol)
+        public async Task<Dictionary<string, object>?> GetStockPriceQuote(string stockSymbol)
         {
             //create http client
             HttpClient httpClient = _httpClientFactory.CreateClient();
@@ -62,10 +62,10 @@ namespace Services
             };
 
             //send request
-            HttpResponseMessage httpResponseMessage = httpClient.Send(httpRequestMessage);
+            HttpResponseMessage httpResponseMessage = await httpClient.SendAsync(httpRequestMessage);
 
             //read response body
-            string responseBody = new StreamReader(httpResponseMessage.Content.ReadAsStream()).ReadToEnd();
+            string responseBody = await httpResponseMessage.Content.ReadAsStringAsync();
 
             //convert response body (from JSON into Dictionary)
             Dictionary<string, object>? responseDictionary = JsonSerializer.Deserialize<Dictionary<string, object>>(responseBody);
