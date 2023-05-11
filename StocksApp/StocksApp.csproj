@@ -17,8 +17,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Repositories\Repositories.csproj" />
+    <ProjectReference Include="..\RepositoryContracts\RepositoryContracts.csproj" />
     <ProjectReference Include="..\ServiceContracts\ServiceContracts.csproj" />
     <ProjectReference Include="..\Services\Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

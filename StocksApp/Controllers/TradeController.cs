@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
+using Rotativa.AspNetCore;
 using ServiceContracts;
 using ServiceContracts.DTO;
 using StocksApp.Models;
-using StocksApp.Models;
 using StocksApp;
-using Rotativa.AspNetCore;
+using System.Text.Json;
 
-namespace StocksApp.Controllers
+namespace StockMarketSolution.Controllers
 {
     [Route("[controller]")]
     public class TradeController : Controller
@@ -34,25 +34,24 @@ namespace StocksApp.Controllers
         }
 
 
-        [Route("/")]
-        [Route("[action]")]
-        [Route("~/[controller]")]
-        public async Task<IActionResult> Index()
+        [Route("[action]/{stockSymbol}")]
+        [Route("~/[controller]/{stockSymbol}")]
+        public async Task<IActionResult> Index(string stockSymbol)
         {
             //reset stock symbol if not exists
-            if (string.IsNullOrEmpty(_tradingOptions.DefaultStockSymbol))
-                _tradingOptions.DefaultStockSymbol = "MSFT";
+            if (string.IsNullOrEmpty(stockSymbol))
+                stockSymbol = "MSFT";
 
 
             //get company profile from API server
-            Dictionary<string, object>? companyProfileDictionary = await _finnhubService.GetCompanyProfile(_tradingOptions.DefaultStockSymbol);
+            Dictionary<string, object>? companyProfileDictionary = await _finnhubService.GetCompanyProfile(stockSymbol);
 
             //get stock price quotes from API server
-            Dictionary<string, object>? stockQuoteDictionary = await _finnhubService.GetStockPriceQuote(_tradingOptions.DefaultStockSymbol);
+            Dictionary<string, object>? stockQuoteDictionary = await _finnhubService.GetStockPriceQuote(stockSymbol);
 
 
             //create model object
-            StockTrade stockTrade = new StockTrade() { StockSymbol = _tradingOptions.DefaultStockSymbol };
+            StockTrade stockTrade = new StockTrade() { StockSymbol = stockSymbol };
 
             //load data from finnHubService into model object
             if (companyProfileDictionary != null && stockQuoteDictionary != null)
@@ -133,6 +132,7 @@ namespace StocksApp.Controllers
             return View(orders);
         }
 
+
         [Route("OrdersPDF")]
         public async Task<IActionResult> OrdersPDF()
         {
@@ -153,3 +153,5 @@ namespace StocksApp.Controllers
         }
     }
 }
+
+

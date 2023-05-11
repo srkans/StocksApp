@@ -10,7 +10,6 @@ namespace Repositories
         //private field
         private readonly ApplicationDbContext _dbContext;
 
-
         /// <summary>
         /// Constructor of StocksRepository class that executes when a new object is created for the class
         /// </summary>
@@ -18,7 +17,6 @@ namespace Repositories
         {
             _dbContext = stockMarketDbContext;
         }
-
 
         public async Task<BuyOrder> CreateBuyOrder(BuyOrder buyOrder)
         {
@@ -29,7 +27,6 @@ namespace Repositories
             return buyOrder;
         }
 
-
         public async Task<SellOrder> CreateSellOrder(SellOrder sellOrder)
         {
             //add sell order object to sell orders list
@@ -38,7 +35,6 @@ namespace Repositories
 
             return sellOrder;
         }
-
 
         public async Task<List<BuyOrder>> GetBuyOrders()
         {
@@ -49,7 +45,6 @@ namespace Repositories
 
             return buyOrders;
         }
-
 
         public async Task<List<SellOrder>> GetSellOrders()
         {
