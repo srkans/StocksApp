@@ -10,13 +10,13 @@ namespace Services
     public class StocksService : IStocksService
     {
         //private field
-        private readonly StockMarketDbContext _dbContext;
+        private readonly ApplicationDbContext _dbContext;
 
 
         /// <summary>
         /// Constructor of StocksService class that executes when a new object is created for the class
         /// </summary>
-        public StocksService(StockMarketDbContext stockMarketDbContext)
+        public StocksService(ApplicationDbContext stockMarketDbContext)
         {
             _dbContext = stockMarketDbContext;
         }
