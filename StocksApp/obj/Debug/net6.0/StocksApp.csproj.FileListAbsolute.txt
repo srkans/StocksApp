@@ -74,7 +74,6 @@ F:\Documents\StocksApp\StocksApp\bin\Debug\net6.0\Microsoft.AspNetCore.Razor.Lan
 F:\Documents\StocksApp\StocksApp\bin\Debug\net6.0\Microsoft.CodeAnalysis.dll
 F:\Documents\StocksApp\StocksApp\bin\Debug\net6.0\Microsoft.CodeAnalysis.CSharp.dll
 F:\Documents\StocksApp\StocksApp\bin\Debug\net6.0\Microsoft.CodeAnalysis.Razor.dll
-F:\Documents\StocksApp\StocksApp\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
 F:\Documents\StocksApp\StocksApp\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
 F:\Documents\StocksApp\StocksApp\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
 F:\Documents\StocksApp\StocksApp\bin\Debug\net6.0\Newtonsoft.Json.dll
@@ -85,3 +84,12 @@ F:\Documents\StocksApp\StocksApp\bin\Debug\net6.0\RepositoryContracts.dll
 F:\Documents\StocksApp\StocksApp\bin\Debug\net6.0\Repositories.pdb
 F:\Documents\StocksApp\StocksApp\bin\Debug\net6.0\RepositoryContracts.pdb
 F:\Documents\StocksApp\StocksApp\bin\Debug\net6.0\appsettings.Test.json
+F:\Documents\StocksApp\StocksApp\bin\Debug\net6.0\Serilog.dll
+F:\Documents\StocksApp\StocksApp\bin\Debug\net6.0\Serilog.AspNetCore.dll
+F:\Documents\StocksApp\StocksApp\bin\Debug\net6.0\Serilog.Extensions.Hosting.dll
+F:\Documents\StocksApp\StocksApp\bin\Debug\net6.0\Serilog.Extensions.Logging.dll
+F:\Documents\StocksApp\StocksApp\bin\Debug\net6.0\Serilog.Formatting.Compact.dll
+F:\Documents\StocksApp\StocksApp\bin\Debug\net6.0\Serilog.Settings.Configuration.dll
+F:\Documents\StocksApp\StocksApp\bin\Debug\net6.0\Serilog.Sinks.Console.dll
+F:\Documents\StocksApp\StocksApp\bin\Debug\net6.0\Serilog.Sinks.Debug.dll
+F:\Documents\StocksApp\StocksApp\bin\Debug\net6.0\Serilog.Sinks.File.dll

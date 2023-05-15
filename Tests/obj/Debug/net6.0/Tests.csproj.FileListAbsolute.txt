@@ -464,3 +464,12 @@ F:\Documents\StocksApp\Tests\bin\Debug\net6.0\StocksApp.pdb
 F:\Documents\StocksApp\Tests\bin\Debug\net6.0\Repositories.pdb
 F:\Documents\StocksApp\Tests\obj\Debug\net6.0\MvcTestingAppManifest.json
 F:\Documents\StocksApp\Tests\bin\Debug\net6.0\appsettings.Test.json
+F:\Documents\StocksApp\Tests\bin\Debug\net6.0\Serilog.dll
+F:\Documents\StocksApp\Tests\bin\Debug\net6.0\Serilog.AspNetCore.dll
+F:\Documents\StocksApp\Tests\bin\Debug\net6.0\Serilog.Extensions.Hosting.dll
+F:\Documents\StocksApp\Tests\bin\Debug\net6.0\Serilog.Extensions.Logging.dll
+F:\Documents\StocksApp\Tests\bin\Debug\net6.0\Serilog.Formatting.Compact.dll
+F:\Documents\StocksApp\Tests\bin\Debug\net6.0\Serilog.Settings.Configuration.dll
+F:\Documents\StocksApp\Tests\bin\Debug\net6.0\Serilog.Sinks.Console.dll
+F:\Documents\StocksApp\Tests\bin\Debug\net6.0\Serilog.Sinks.Debug.dll
+F:\Documents\StocksApp\Tests\bin\Debug\net6.0\Serilog.Sinks.File.dll
