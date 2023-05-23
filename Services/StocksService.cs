@@ -16,6 +16,7 @@ namespace Services
         //private field
         private readonly IStocksRepository _stocksRepository;
 
+
         /// <summary>
         /// Constructor of StocksService class that executes when a new object is created for the class
         /// </summary>
@@ -23,6 +24,7 @@ namespace Services
         {
             _stocksRepository = stocksRepository;
         }
+
 
         public async Task<BuyOrderResponse> CreateBuyOrder(BuyOrderRequest? buyOrderRequest)
         {
@@ -46,6 +48,7 @@ namespace Services
             return buyOrder.ToBuyOrderResponse();
         }
 
+
         public async Task<SellOrderResponse> CreateSellOrder(SellOrderRequest? sellOrderRequest)
         {
             //Validation: sellOrderRequest can't be null
@@ -68,6 +71,7 @@ namespace Services
             return sellOrder.ToSellOrderResponse();
         }
 
+
         public async Task<List<BuyOrderResponse>> GetBuyOrders()
         {
             //Convert all BuyOrder objects into BuyOrderResponse objects
@@ -75,6 +79,7 @@ namespace Services
 
             return buyOrders.Select(temp => temp.ToBuyOrderResponse()).ToList();
         }
+
 
         public async Task<List<SellOrderResponse>> GetSellOrders()
         {
@@ -85,6 +90,5 @@ namespace Services
         }
     }
 }
-
 
 
