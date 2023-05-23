@@ -93,3 +93,5 @@ F:\Documents\StocksApp\StocksApp\bin\Debug\net6.0\Serilog.Settings.Configuration
 F:\Documents\StocksApp\StocksApp\bin\Debug\net6.0\Serilog.Sinks.Console.dll
 F:\Documents\StocksApp\StocksApp\bin\Debug\net6.0\Serilog.Sinks.Debug.dll
 F:\Documents\StocksApp\StocksApp\bin\Debug\net6.0\Serilog.Sinks.File.dll
+F:\Documents\StocksApp\StocksApp\bin\Debug\net6.0\Exceptions.dll
+F:\Documents\StocksApp\StocksApp\bin\Debug\net6.0\Exceptions.pdb

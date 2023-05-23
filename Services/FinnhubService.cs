@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Exceptions;
+using Microsoft.Extensions.Configuration;
 using RepositoryContracts;
 using ServiceContracts;
 using System;
@@ -20,40 +21,77 @@ namespace Services
             _finnhubRepository = finnhubRepository;
         }
 
+
         public async Task<Dictionary<string, object>?> GetCompanyProfile(string stockSymbol)
         {
-            //invoke repository
-            Dictionary<string, object>? responseDictionary = await _finnhubRepository.GetCompanyProfile(stockSymbol);
+            try
+            {
+                //invoke repository
+                Dictionary<string, object>? responseDictionary = await _finnhubRepository.GetCompanyProfile(stockSymbol);
 
-            //return response dictionary back to the caller
-            return responseDictionary;
+                //return response dictionary back to the caller
+                return responseDictionary;
+            }
+            catch (Exception ex)
+            {
+                FinnhubException finnhubException = new FinnhubException("Unable to connect to finnhub", ex);
+                throw finnhubException;
+            }
         }
+
 
         public async Task<Dictionary<string, object>?> GetStockPriceQuote(string stockSymbol)
         {
-            //invoke repository
-            Dictionary<string, object>? responseDictionary = await _finnhubRepository.GetStockPriceQuote(stockSymbol);
+            try
+            {
+                //invoke repository
+                Dictionary<string, object>? responseDictionary = await _finnhubRepository.GetStockPriceQuote(stockSymbol);
 
-            //return response dictionary back to the caller
-            return responseDictionary;
+                //return response dictionary back to the caller
+                return responseDictionary;
+            }
+            catch (Exception ex)
+            {
+                FinnhubException finnhubException = new FinnhubException("Unable to connect to finnhub", ex);
+                throw finnhubException;
+            }
         }
+
 
         public async Task<List<Dictionary<string, string>>?> GetStocks()
         {
-            //invoke repository
-            List<Dictionary<string, string>>? responseDictionary = await _finnhubRepository.GetStocks();
+            try
+            {
+                //invoke repository
+                List<Dictionary<string, string>>? responseDictionary = await _finnhubRepository.GetStocks();
 
-            //return response dictionary back to the caller
-            return responseDictionary;
+                //return response dictionary back to the caller
+                return responseDictionary;
+            }
+            catch (Exception ex)
+            {
+                FinnhubException finnhubException = new FinnhubException("Unable to connect to finnhub", ex);
+                throw finnhubException;
+            }
         }
+
 
         public async Task<Dictionary<string, object>?> SearchStocks(string stockSymbolToSearch)
         {
-            //invoke repository
-            Dictionary<string, object>? responseDictionary = await _finnhubRepository.SearchStocks(stockSymbolToSearch);
+            try
+            {
+                //invoke repository
+                Dictionary<string, object>? responseDictionary = await _finnhubRepository.SearchStocks(stockSymbolToSearch);
 
-            //return response dictionary back to the caller
-            return responseDictionary;
+                //return response dictionary back to the caller
+                return responseDictionary;
+            }
+            catch (Exception ex)
+            {
+                FinnhubException finnhubException = new FinnhubException("Unable to connect to finnhub", ex);
+                throw finnhubException;
+            }
         }
     }
 }
+

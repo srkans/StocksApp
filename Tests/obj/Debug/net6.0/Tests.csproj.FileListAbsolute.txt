@@ -473,3 +473,5 @@ F:\Documents\StocksApp\Tests\bin\Debug\net6.0\Serilog.Settings.Configuration.dll
 F:\Documents\StocksApp\Tests\bin\Debug\net6.0\Serilog.Sinks.Console.dll
 F:\Documents\StocksApp\Tests\bin\Debug\net6.0\Serilog.Sinks.Debug.dll
 F:\Documents\StocksApp\Tests\bin\Debug\net6.0\Serilog.Sinks.File.dll
+F:\Documents\StocksApp\Tests\bin\Debug\net6.0\Exceptions.dll
+F:\Documents\StocksApp\Tests\bin\Debug\net6.0\Exceptions.pdb

@@ -4549,6 +4549,16 @@
           "bin/placeholder/Entities.dll": {}
         }
       },
+      "Exceptions/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Exceptions.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Exceptions.dll": {}
+        }
+      },
       "Repositories/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -4595,6 +4605,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "Exceptions": "1.0.0",
           "Microsoft.Extensions.Http": "6.0.0",
           "RepositoryContracts": "1.0.0",
           "ServiceContracts": "1.0.0"
@@ -4610,6 +4621,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "Exceptions": "1.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.8",
           "Repositories": "1.0.0",
           "RepositoryContracts": "1.0.0",
@@ -12360,6 +12372,11 @@
       "type": "project",
       "path": "../Entities/Entities.csproj",
       "msbuildProject": "../Entities/Entities.csproj"
+    },
+    "Exceptions/1.0.0": {
+      "type": "project",
+      "path": "../Exceptions/Exceptions.csproj",
+      "msbuildProject": "../Exceptions/Exceptions.csproj"
     },
     "Repositories/1.0.0": {
       "type": "project",

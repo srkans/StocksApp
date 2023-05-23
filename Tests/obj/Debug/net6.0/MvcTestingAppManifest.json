@@ -1,5 +1,6 @@
 {
   "Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "F:\\Documents\\StocksApp\\Entities",
+  "Exceptions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "F:\\Documents\\StocksApp\\Exceptions",
   "Repositories, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "F:\\Documents\\StocksApp\\Repositories",
   "RepositoryContracts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "F:\\Documents\\StocksApp\\RepositoryContracts",
   "ServiceContracts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "F:\\Documents\\StocksApp\\ServiceContracts",
