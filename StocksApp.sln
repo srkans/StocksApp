@@ -3,15 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StocksApp.Web", "StocksApp.Web\StocksApp.Web.csproj", "{A6827A56-1481-4F9F-9DF8-202E02221DFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StocksApp.Web", "StocksApp.Web\StocksApp.Web.csproj", "{A6827A56-1481-4F9F-9DF8-202E02221DFB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{16A45794-09FA-4466-A5A5-41CBDBC3698C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{B463BCEC-4448-400A-B143-4F60B2B11447}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StocksApp.Core", "StocksApp.Core\StocksApp.Core.csproj", "{4F0C5BE5-1760-46A9-A1C3-FED0B21B40E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StocksApp.Core", "StocksApp.Core\StocksApp.Core.csproj", "{4F0C5BE5-1760-46A9-A1C3-FED0B21B40E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StocksApp.Infrastructure", "StocksApp.Infrastructure\StocksApp.Infrastructure.csproj", "{D10DD88C-42D6-4ACC-B3D5-56E3438B7095}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StocksApp.Infrastructure", "StocksApp.Infrastructure\StocksApp.Infrastructure.csproj", "{D10DD88C-42D6-4ACC-B3D5-56E3438B7095}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stocks.Controllers.Tests", "StocksControllersTests\Stocks.Controllers.Tests.csproj", "{CFF55FB8-2CE7-4080-8C97-12B8C90876F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stocks.Integration.Tests", "Stocks.Integration.Tests\Stocks.Integration.Tests.csproj", "{7580E369-785D-4BB6-82F7-747DF8486793}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stocks.Services.Tests", "Stocks.Services.Tests\Stocks.Services.Tests.csproj", "{93102961-8E03-428B-B0D9-BA464432CA3D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +37,18 @@ Global
 		{D10DD88C-42D6-4ACC-B3D5-56E3438B7095}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D10DD88C-42D6-4ACC-B3D5-56E3438B7095}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D10DD88C-42D6-4ACC-B3D5-56E3438B7095}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFF55FB8-2CE7-4080-8C97-12B8C90876F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFF55FB8-2CE7-4080-8C97-12B8C90876F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFF55FB8-2CE7-4080-8C97-12B8C90876F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFF55FB8-2CE7-4080-8C97-12B8C90876F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7580E369-785D-4BB6-82F7-747DF8486793}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7580E369-785D-4BB6-82F7-747DF8486793}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7580E369-785D-4BB6-82F7-747DF8486793}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7580E369-785D-4BB6-82F7-747DF8486793}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93102961-8E03-428B-B0D9-BA464432CA3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93102961-8E03-428B-B0D9-BA464432CA3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93102961-8E03-428B-B0D9-BA464432CA3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93102961-8E03-428B-B0D9-BA464432CA3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,6 +57,9 @@ Global
 		{A6827A56-1481-4F9F-9DF8-202E02221DFB} = {16A45794-09FA-4466-A5A5-41CBDBC3698C}
 		{4F0C5BE5-1760-46A9-A1C3-FED0B21B40E1} = {16A45794-09FA-4466-A5A5-41CBDBC3698C}
 		{D10DD88C-42D6-4ACC-B3D5-56E3438B7095} = {16A45794-09FA-4466-A5A5-41CBDBC3698C}
+		{CFF55FB8-2CE7-4080-8C97-12B8C90876F4} = {B463BCEC-4448-400A-B143-4F60B2B11447}
+		{7580E369-785D-4BB6-82F7-747DF8486793} = {B463BCEC-4448-400A-B143-4F60B2B11447}
+		{93102961-8E03-428B-B0D9-BA464432CA3D} = {B463BCEC-4448-400A-B143-4F60B2B11447}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {761416DC-CA84-4605-8FFB-DB98C7A8211A}

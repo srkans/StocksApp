@@ -1,0 +1,5 @@
+{
+  "StocksApp.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "F:\\StocksApp\\StocksApp.Core",
+  "StocksApp.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "F:\\StocksApp\\StocksApp.Infrastructure",
+  "StocksApp.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "F:\\StocksApp\\StocksApp.Web"
+}
