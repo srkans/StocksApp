@@ -3,6 +3,7 @@ using Microsoft.Extensions.Options;
 using Rotativa.AspNetCore;
 using ServiceContracts;
 using ServiceContracts.DTO;
+using ServiceContracts.FinnhubService;
 using StocksApp.Models;
 using System.Diagnostics;
 using System.Text.Json;
@@ -13,19 +14,19 @@ namespace StocksApp.Controllers
     public class StocksController : Controller
     {
         private readonly TradingOptions _tradingOptions;
-        private readonly IFinnhubService _finnhubService;
+        private readonly IFinnhubStocksService _finnhubStocksService;
+
 
         /// <summary>
         /// Constructor for TradeController that executes when a new object is created for the class
         /// </summary>
         /// <param name="tradingOptions">Injecting TradeOptions config through Options pattern</param>
-        /// <param name="finnhubService">Injecting FinnhubService</param>
-        public StocksController(IOptions<TradingOptions> tradingOptions, IFinnhubService finnhubService)
+        /// <param name="finnhubStocksService">Injecting FinnhubStocksService</param>
+        public StocksController(IOptions<TradingOptions> tradingOptions, IFinnhubStocksService finnhubStocksService)
         {
             _tradingOptions = tradingOptions.Value;
-            _finnhubService = finnhubService;
+            _finnhubStocksService = finnhubStocksService;
         }
-
 
         [Route("/")]
         [Route("[action]/{stock?}")]
@@ -34,7 +35,7 @@ namespace StocksApp.Controllers
         {
 
             //get company profile from API server
-            List<Dictionary<string, string>>? stocksDictionary = await _finnhubService.GetStocks();
+            List<Dictionary<string, string>>? stocksDictionary = await _finnhubStocksService.GetStocks();
 
             List<Stock> stocks = new List<Stock>();
 
