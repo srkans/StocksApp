@@ -1,0 +1,17 @@
+F:\StocksApp\StocksApp.Infrastructure\bin\Debug\net6.0\StocksApp.Infrastructure.deps.json
+F:\StocksApp\StocksApp.Infrastructure\bin\Debug\net6.0\StocksApp.Infrastructure.runtimeconfig.json
+F:\StocksApp\StocksApp.Infrastructure\bin\Debug\net6.0\StocksApp.Infrastructure.dll
+F:\StocksApp\StocksApp.Infrastructure\bin\Debug\net6.0\StocksApp.Infrastructure.pdb
+F:\StocksApp\StocksApp.Infrastructure\bin\Debug\net6.0\StocksApp.Core.dll
+F:\StocksApp\StocksApp.Infrastructure\bin\Debug\net6.0\StocksApp.Core.pdb
+F:\StocksApp\StocksApp.Infrastructure\obj\Debug\net6.0\StocksApp.Infrastructure.csproj.AssemblyReference.cache
+F:\StocksApp\StocksApp.Infrastructure\obj\Debug\net6.0\StocksApp.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+F:\StocksApp\StocksApp.Infrastructure\obj\Debug\net6.0\StocksApp.Infrastructure.AssemblyInfoInputs.cache
+F:\StocksApp\StocksApp.Infrastructure\obj\Debug\net6.0\StocksApp.Infrastructure.AssemblyInfo.cs
+F:\StocksApp\StocksApp.Infrastructure\obj\Debug\net6.0\StocksApp.Infrastructure.csproj.CoreCompileInputs.cache
+F:\StocksApp\StocksApp.Infrastructure\obj\Debug\net6.0\StocksApp.Infrastructure.csproj.CopyComplete
+F:\StocksApp\StocksApp.Infrastructure\obj\Debug\net6.0\StocksApp.Infrastructure.dll
+F:\StocksApp\StocksApp.Infrastructure\obj\Debug\net6.0\refint\StocksApp.Infrastructure.dll
+F:\StocksApp\StocksApp.Infrastructure\obj\Debug\net6.0\StocksApp.Infrastructure.pdb
+F:\StocksApp\StocksApp.Infrastructure\obj\Debug\net6.0\StocksApp.Infrastructure.genruntimeconfig.cache
+F:\StocksApp\StocksApp.Infrastructure\obj\Debug\net6.0\ref\StocksApp.Infrastructure.dll
