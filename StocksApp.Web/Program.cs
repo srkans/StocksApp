@@ -1,4 +1,5 @@
 using Entities;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Repositories;
 using RepositoryContracts;
@@ -24,7 +25,11 @@ builder.Host.UseSerilog((HostBuilderContext context, IServiceProvider services, 
 });
 
 //Services
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews(options =>
+{
+    options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
+});
+
 builder.Services.Configure<TradingOptions>(builder.Configuration.GetSection("TradingOptions"));
 builder.Services.AddTransient<IBuyOrdersService, StocksBuyOrdersService>();
 builder.Services.AddTransient<ISellOrdersService, StocksSellOrdersService>();
